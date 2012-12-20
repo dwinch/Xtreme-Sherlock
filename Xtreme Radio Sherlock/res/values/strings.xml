@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name1">Xtreme Radio Sherlock</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Xtreme Radio</string>
+    <string name="title_activity_radio_fragment">RadioFragment</string>
+    
+    <!-- Contact Fragment -->
+    <string name="contact_name_text">Name:</string>
+    <string name="contact_name_hint">Type your name</string>
+    <string name="contact_message_text">Message:</string>
+    <string name="contact_message_hint">Type your message</string>
+    
+    <!-- Content Descriptions -->
+    <string name="xtreme_logo_cont">Xtreme Radio Logo</string>
+
+</resources>

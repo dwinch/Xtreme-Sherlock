@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/song_details_rectangle">
+    
+    <stroke android:width="2dp" android:color="#ff333333" />
+    
+    <padding android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp" />
+
+    <corners android:radius="5dp" />
+    
+   <gradient
+        android:startColor="#222222"
+        android:endColor="#CCCCCC"
+        android:angle="90"/>
+
+</shape>

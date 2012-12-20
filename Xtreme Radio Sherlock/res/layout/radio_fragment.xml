@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radioLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="8dp" >
+    
+    <ImageView
+        android:id="@+id/XtremeLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/xtreme_logo_cont"
+        android:paddingTop="10dp"
+        android:src="@drawable/xtreme_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="30dp" >
+
+        <ImageButton
+            android:id="@+id/imageButtonPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+	        android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_play" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/song_details_rectangle" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="8dp" >
+
+                    <ImageView
+                        android:id="@+id/imageViewAlbumArt"
+                        android:layout_width="77dp"
+                        android:layout_height="81dp"
+                        android:paddingLeft="2dp" 
+                        android:paddingBottom="3dp" 
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_launcher" />
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_vinyl" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="8dp" >
+
+                    <TextView
+                        android:id="@+id/textViewSongDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="3"
+                        android:padding="8dp"
+                        android:text=". jhgugjkgk kjg kgjlhgkjhgjg hjkjhgjhfgkjhf jhkjhfhjkf ghjfjkhfjhkf"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="8dp" >
+    
+    <ImageView
+        android:id="@+id/XtremeLogo"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/xtreme_logo_cont"
+        android:paddingTop="10dp"
+        android:src="@drawable/contact" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_name_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_rectangle"
+        android:ems="10"
+        android:hint="@string/contact_name_hint"
+        android:inputType="textPersonName"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:textColor="@color/black" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_message_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_rectangle"
+        android:ems="10"
+        android:hint="@string/contact_message_hint"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:textColor="@color/black" />
+	
+</LinearLayout>
