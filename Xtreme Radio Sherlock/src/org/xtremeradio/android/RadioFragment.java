@@ -1,17 +1,7 @@
 package org.xtremeradio.android;
 
-
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 import com.actionbarsherlock.app.SherlockFragment;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -22,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RadioFragment extends SherlockFragment{
 	
@@ -55,9 +46,6 @@ public class RadioFragment extends SherlockFragment{
 		    }
 		});
 		
-		songText = (TextView) view.findViewById(R.id.textViewSongDetails);
-		albumArt = (ImageView) view.findViewById(R.id.imageViewAlbumArt);
-		
 		playButton = (ImageButton) view.findViewById(R.id.imageButtonPlay);
 		playButton.setOnClickListener(new OnClickListener() {
 		    @Override
@@ -65,7 +53,6 @@ public class RadioFragment extends SherlockFragment{
 		        playClick();
 		    }
 		});
-		
 		return view;
 	}
 	
@@ -76,6 +63,7 @@ public class RadioFragment extends SherlockFragment{
 			mp.prepareAsync();
 			displaySongDetails();
 			playing = true;
+			Toast.makeText(getSherlockActivity(), "Starting stream, please wait", Toast.LENGTH_LONG).show();
 		} else {
 			playButton.setImageResource(R.drawable.icon_play);
 			mp.reset();
@@ -99,31 +87,7 @@ public class RadioFragment extends SherlockFragment{
 	}
 	
 	private void displaySongDetails() {
-		SongDetails songDetails = new SongDetails();
-		JSONObject songJSON = songDetails.getJSON();
-		//Set the artist and song name
-		try {
-			songText.setText(songJSON.getString("XML_OCP_NOW_CARTLINE2") + "\n" +
-					songJSON.getString("XML_OCP_NOW_CARTLINE1"));
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//Set the album artwork
-		try {
-			Bitmap bitmap = BitmapFactory.decodeStream((InputStream)
-					  new URL(songJSON.getString("picture")).getContent());
-			albumArt.setImageBitmap(bitmap);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		new SongDetails(getView());
 	}
 	
 	@Override

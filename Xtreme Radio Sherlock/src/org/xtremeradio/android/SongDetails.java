@@ -4,7 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,27 +18,81 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class SongDetails {
+public class SongDetails extends SherlockFragmentActivity {
 	
-	JSONObject songDetails;
+	JSONObject songJSON;
+	TextView songText;
+	ImageView albumArt;
+	HttpResponse response;
+	Bitmap bitmap;
 	
-	public SongDetails() {
-		try {
-            Class strictModeClass=Class.forName("android.os.StrictMode");
-            Class strictModeThreadPolicyClass=Class.forName("android.os.StrictMode$ThreadPolicy");
-            Object laxPolicy = strictModeThreadPolicyClass.getField("LAX").get(null);
-            Method method_setThreadPolicy = strictModeClass.getMethod(
-                    "setThreadPolicy", strictModeThreadPolicyClass );
-            method_setThreadPolicy.invoke(null,laxPolicy);
-        } catch (Exception e) {
-
-        }
+	public SongDetails(View view) {
+		songText = (TextView) view.findViewById(R.id.textViewSongDetails);
+		albumArt = (ImageView) view.findViewById(R.id.imageViewAlbumArt);
+		startMessageThread();
 	}
 	
-	public JSONObject getJSON() {
+	// Need handler for callbacks to the UI thread
+    final Handler mHandler = new Handler();
+
+    // Create runnable for posting
+    final Runnable mUpdateResults = new Runnable() {
+        public void run() {
+            updateResultsInUi();
+        }
+    };
+    
+    protected void startMessageThread() {
+        // Fire off a thread to do some work that we shouldn't do directly in the UI thread
+    	ScheduledExecutorService executor =
+    		    Executors.newSingleThreadScheduledExecutor();
+    	
+    	Runnable periodicTask = new Runnable() {
+    		public void run() {
+		        // Invoke method(s) to do the work
+		        getDetails();
+                mHandler.post(mUpdateResults);
+    		}
+    	};
+		// Set the thread to run every 10 seconds
+		executor.scheduleAtFixedRate(periodicTask, 0, 10, TimeUnit.SECONDS);
+    }
+
+    private void updateResultsInUi() {
+        // Back in the UI thread -- update our UI elements based on the data in mResults
+    	//Update song details
+    	try {
+			songText.setText(songJSON.getString("XML_OCP_NOW_CARTLINE2") + "\n" +
+					songJSON.getString("XML_OCP_NOW_CARTLINE1"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+		//Set the album artwork
+		albumArt.setImageBitmap(bitmap);
+    }
+	
+	public void getDetails() {
 		String songString = getFeed();
         JSONArray jsonArray = null;
 		try {
@@ -42,12 +100,25 @@ public class SongDetails {
           Log.i(MainActivity.class.getName(),
               "Number of entries " + jsonArray.length());
           
-  		songDetails = jsonArray.getJSONObject(0);
+  		songJSON = jsonArray.getJSONObject(0);
 
         } catch (Exception e) {
           e.printStackTrace();
         }
-        return songDetails;
+		
+		try {
+			bitmap = BitmapFactory.decodeStream((InputStream)
+					  new URL(songJSON.getString("picture")).getContent());
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
