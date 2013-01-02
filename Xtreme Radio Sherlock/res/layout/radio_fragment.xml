@@ -28,19 +28,20 @@
             android:id="@+id/imageButtonPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-	        android:adjustViewBounds="true"
+            android:adjustViewBounds="true"
             android:background="@android:color/transparent"
             android:src="@drawable/icon_play" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/song_details_rectangle" >
+            android:background="@drawable/song_details_rectangle"
+            android:tileMode="repeat" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" >
-
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -50,10 +51,10 @@
                         android:id="@+id/imageViewAlbumArt"
                         android:layout_width="77dp"
                         android:layout_height="81dp"
-                        android:paddingLeft="2dp" 
-                        android:paddingBottom="3dp" 
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
+                        android:paddingBottom="3dp"
+                        android:paddingLeft="2dp"
                         android:src="@drawable/ic_launcher" />
 
                     <ImageView
@@ -63,7 +64,6 @@
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/icon_vinyl" />
-
                 </RelativeLayout>
 
                 <LinearLayout
@@ -72,7 +72,7 @@
                     android:gravity="center_vertical"
                     android:orientation="vertical"
                     android:padding="8dp" >
-
+
                     <TextView
                         android:id="@+id/textViewSongDetails"
                         android:layout_width="wrap_content"
@@ -82,10 +82,9 @@
                         android:text=". jhgugjkgk kjg kgjlhgkjhgjg hjkjhgjhfgkjhf jhkjhfhjkf ghjfjkhfjhkf"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="@color/white" />
-
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

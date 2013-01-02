@@ -1,4 +1,5 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <string name="app_name1">Xtreme Radio Sherlock</string>
     <string name="menu_settings">Settings</string>
@@ -10,8 +11,23 @@
     <string name="contact_name_hint">Type your name</string>
     <string name="contact_message_text">Message:</string>
     <string name="contact_message_hint">Type your message</string>
+    <string name="contact_submit">Submit</string>
     
     <!-- Content Descriptions -->
     <string name="xtreme_logo_cont">Xtreme Radio Logo</string>
+    
+    
+    <style name="ButtonText">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">#ffffff</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textSize">30dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:shadowColor">#000000</item>
+    <item name="android:shadowDx">1</item>
+    <item name="android:shadowDy">1</item>
+    <item name="android:shadowRadius">3</item>
+	</style>
 
 </resources>

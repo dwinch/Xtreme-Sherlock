@@ -920,15 +920,17 @@ containing a value of this type.
         public static final int abs__textfield_searchview_right_holo_dark=0x7f02006d;
         public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
         public static final int background_gradient=0x7f02006f;
-        public static final int contact=0x7f020070;
-        public static final int edittext_rectangle=0x7f020071;
-        public static final int ic_action_search=0x7f020072;
-        public static final int ic_launcher=0x7f020073;
-        public static final int icon_pause=0x7f020074;
-        public static final int icon_play=0x7f020075;
-        public static final int icon_vinyl=0x7f020076;
-        public static final int song_details_rectangle=0x7f020077;
-        public static final int xtreme_logo=0x7f020078;
+        public static final int backgroundtile=0x7f020070;
+        public static final int button_red=0x7f020071;
+        public static final int contact=0x7f020072;
+        public static final int edittext_rectangle=0x7f020073;
+        public static final int ic_action_search=0x7f020074;
+        public static final int ic_launcher=0x7f020075;
+        public static final int icon_pause=0x7f020076;
+        public static final int icon_play=0x7f020077;
+        public static final int icon_vinyl=0x7f020078;
+        public static final int song_details_rectangle=0x7f020079;
+        public static final int xtreme_logo=0x7f02007a;
     }
     public static final class id {
         public static final int XtremeLogo=0x7f040034;
@@ -972,28 +974,29 @@ containing a value of this type.
         public static final int abs__title=0x7f04001b;
         public static final int abs__titleDivider=0x7f04001c;
         public static final int abs__up=0x7f04000b;
+        public static final int button_submit=0x7f040039;
         public static final int disableHome=0x7f040009;
         public static final int editTextMessage=0x7f040038;
         public static final int editTextName=0x7f040036;
         public static final int edit_query=0x7f040027;
         public static final int homeAsUp=0x7f040006;
-        public static final int imageButtonPlay=0x7f04003a;
-        public static final int imageView1=0x7f04003c;
-        public static final int imageViewAlbumArt=0x7f04003b;
+        public static final int imageButtonPlay=0x7f04003b;
+        public static final int imageView1=0x7f04003d;
+        public static final int imageViewAlbumArt=0x7f04003c;
         public static final int listMode=0x7f040002;
-        public static final int listview_background_shape=0x7f04003e;
-        public static final int menu_quality=0x7f040041;
-        public static final int menu_settings=0x7f040040;
+        public static final int listview_background_shape=0x7f04003f;
+        public static final int menu_quality=0x7f040042;
+        public static final int menu_settings=0x7f040041;
         public static final int normal=0x7f040001;
-        public static final int radioLayout=0x7f040039;
+        public static final int radioLayout=0x7f04003a;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
-        public static final int song_details_rectangle=0x7f04003f;
+        public static final int song_details_rectangle=0x7f040040;
         public static final int tabMode=0x7f040003;
         public static final int textViewMessage=0x7f040037;
         public static final int textViewName=0x7f040035;
-        public static final int textViewSongDetails=0x7f04003d;
+        public static final int textViewSongDetails=0x7f04003e;
         public static final int useLogo=0x7f040004;
         public static final int viewPager=0x7f040033;
         public static final int wrap_content=0x7f040000;
@@ -1089,15 +1092,17 @@ containing a value of this type.
         /**  Contact Fragment 
          */
         public static final int contact_name_text=0x7f090013;
+        public static final int contact_submit=0x7f090017;
         public static final int menu_settings=0x7f090010;
         public static final int title_activity_main=0x7f090011;
         public static final int title_activity_radio_fragment=0x7f090012;
         /**  Content Descriptions 
          */
-        public static final int xtreme_logo_cont=0x7f090017;
+        public static final int xtreme_logo_cont=0x7f090018;
     }
     public static final class style {
-        public static final int AppTheme=0x7f0a0059;
+        public static final int AppTheme=0x7f0a005a;
+        public static final int ButtonText=0x7f0a0059;
         public static final int DialogWindowTitle_Sherlock=0x7f0a0036;
         public static final int DialogWindowTitle_Sherlock_Light=0x7f0a0037;
         public static final int Sherlock___TextAppearance_Small=0x7f0a004a;
